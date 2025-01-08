@@ -1,0 +1,51 @@
+.matches-list {
+    .match {
+        .icon {
+            width: 30px;
+        }
+
+        .start-time {
+            width: 40px;
+        }
+
+        .time {
+            min-width: 15%;
+        }
+
+        .home-team {
+            min-width: 15%;
+        }
+
+        .score {
+            width: 60px;
+        }
+
+        .away-team {
+            min-width: 15%;
+        }
+
+        .half-time {
+            width: 70px;
+        }
+
+        .corner {
+            width: 70px;
+
+            .icon {
+                width: 16px;
+            }
+        }
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}

@@ -1,0 +1,43 @@
+services:
+    php-fpm:
+        container_name: laravel_score_php-fpm
+        restart: always
+        build: ./dockers/php-fpm
+        volumes:
+            - ./:/var/www/laravel
+        networks:
+            - mynet
+    nginx:
+        container_name: laravel_score_nginx
+        restart: always
+        build: ./dockers/nginx
+        volumes:
+            - ./:/var/www/laravel
+            - .dockers/logs/nginx:/var/log/nginx
+        ports:
+            - "8080:80"
+        networks:
+            - mynet
+
+    mysql:
+        container_name: laravel_score_mysql
+        platform: linux/x86_64
+        restart: always
+        image: mysql:8.0
+        volumes:
+            - .dockers/mysql:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: laravel_score
+            MYSQL_TCP_PORT: 33110
+        ports:
+            - 33110:33110
+        networks:
+            mynet:
+                aliases:
+                    - laravel_score_db
+networks:
+    mynet:
+        driver: bridge
+volumes:
+    dbdata:

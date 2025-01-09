@@ -1,51 +1,162 @@
+@import "bootstrap/scss/bootstrap";
+
+html {
+  @include media-breakpoint-down(md) {
+    font-size: 14px;
+  }
+}
+
 .matches-list {
-    .match {
-        .icon {
-            width: 30px;
+  .match {
+    height: 60px;
+
+    @include media-breakpoint-down(lg) {
+      height: 80px;
+    }
+
+    @include media-breakpoint-down(md) {
+      height: 120px;
+    }
+
+    td {
+      position: relative;
+
+      & > div {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+      }
+    }
+
+    .icon {
+      width: 25px;
+    }
+
+    .status-time {
+      width: 30%;
+
+      @include media-breakpoint-down(md) {
+        width: 22%;
+
+        & > div {
+          flex-direction: column;
         }
 
-        .start-time {
-            width: 40px;
+        .status {
+          margin-top: 5px;
+          flex-grow: unset !important;
         }
+      }
+    }
 
-        .time {
-            min-width: 15%;
+    .team-score {
+      width: 45%;
+
+      .home-team, .away-team {
+        width: 40%;
+      }
+
+      .score {
+        width: 20%;
+      }
+
+      .team-logo {
+        width: 20px;
+
+        .logo {
+          height: 24px;
+        }
+      }
+
+      @include media-breakpoint-down(md) {
+        width: 52%;
+
+        & > div {
+          flex-direction: column;
         }
 
         .home-team {
-            min-width: 15%;
+          width: 100%;
+          justify-content: center;
+          margin-bottom: 5px;
         }
-
-        .score {
-            width: 60px;
-        }
-
         .away-team {
-            min-width: 15%;
-        }
+          width: 100%;
+          justify-content: center;
+          margin-top: 5px;
+          flex-direction: row-reverse;
 
-        .half-time {
-            width: 70px;
+          & > span {
+            margin-right: 0.5rem;
+            margin-left: 0 !important;
+          }
         }
-
-        .corner {
-            width: 70px;
-
-            .icon {
-                width: 16px;
-            }
-        }
+      }
     }
+
+    .statistic {
+      .half-time {
+        width: 60px;
+      }
+
+      .corner {
+        width: 60px;
+
+        .icon {
+          width: 16px;
+        }
+      }
+
+      @include media-breakpoint-down(md) {
+        & > div {
+          flex-direction: column;
+          justify-content: center;
+          align-items: end;
+          padding-right: 0.5rem;
+
+          .half-time {
+            margin-bottom: 0.5rem;
+            text-align: right;
+          }
+
+          .corner {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}
+
+.match-group {
+  .logo {
+    height: 24px;
+  }
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .text-left {
-    text-align: left;
+  text-align: left;
 }
 
 .text-right {
-    text-align: right;
+  text-align: right;
+}
+
+.align-item-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: end;
 }

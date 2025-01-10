@@ -19,34 +19,34 @@
     <td class="team-score">
         <div class="d-flex align-item-center justify-center">
             <div class="home-team d-flex justify-end align-item-center">
-                <span class="me-3">
+                <span>
                     {{ $match['homeTeam']['name'] }}
                 </span>
+            </div>
+
+            <div class="score d-flex align-item-center justify-center">
                 <div class="team-logo">
                     <img src="{{ $match['homeTeam']['logo'] }}"
                          alt="{{ $match['homeTeam']['name'] }}"
                          class="logo"
                     />
                 </div>
-            </div>
-
-            <div class="score text-center">
-                <strong class="text-danger">
+                <strong class="text-danger px-3">
                     @if($showDefault)
                         {{ '0 - 0' }}
                     @else
                         {{$match['home_scores'][0] ?? 0}} - {{$match['away_scores'][0] ?? 0}}
                     @endif
                 </strong>
-            </div>
-
-            <div class="away-team d-flex align-item-center">
                 <div class="team-logo">
                     <img src="{{ $match['awayTeam']['logo'] }}"
                          alt="{{ $match['awayTeam']['name'] }}"
                          class="logo"/>
                 </div>
-                <span class="ms-3">
+            </div>
+
+            <div class="away-team d-flex align-item-center">
+                <span>
                     {{ $match['awayTeam']['name'] }}
                 </span>
             </div>
